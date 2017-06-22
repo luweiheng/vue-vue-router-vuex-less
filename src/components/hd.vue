@@ -20,7 +20,6 @@
 		  	return{
 		  		title: ''
 		  	}
-	  	
 	  	},
 		methods:{
 			_pannel () {

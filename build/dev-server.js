@@ -20,10 +20,24 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = {
   '/v2': {
-    target: 'https://api.douban.com/v2',
+    target: 'https://api.douban.com',
     changeOrigin: true,
     pathRewrite: {
-      '^/v2': ''
+      '^/v2': '/v2'
+    }
+  },
+  '/detail': {
+    target: 'http://music.163.com/api/playlist',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/detail': '/detail'
+    }
+  },
+  '/search': {
+    target: 'http://s.music.163.com',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/search': '/search'
     }
   }
 }

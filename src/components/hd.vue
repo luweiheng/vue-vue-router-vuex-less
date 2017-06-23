@@ -1,7 +1,7 @@
 <template>
   	<div id="hd">
   		<i class="ion-navicon-round" @click="_pannel()"></i>
-  		<span class="title">{{title}}</span>
+  		<span class="title">title</span>
   		<i class="ion-refresh" @click="_reload()"></i>
   		<div class="opa">
   			<div class="opa-left"></div>
@@ -18,7 +18,7 @@
 	  	},
 	  	data () {
 		  	return{
-		  		title: ''
+		  		
 		  	}
 	  	},
 		methods:{
@@ -30,7 +30,7 @@
 			}
 		},
 		mounted () {
-		  	this.title = window.location.hash.slice(2)
+		  	
 		}
 	}
 </script>

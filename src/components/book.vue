@@ -1,24 +1,43 @@
 <template>
-  	<div id="mv_hot">
-  		<ul class="mv-list">
-  			<li class="list-item" v-for = "(item,index) in list">
-  				<img class="pic" v-bind:src="item.images.small">
+  	<div id="book">
+  		<div class="banner">
+  			<swiper :options="swiperOption" ref="mySwiper">
+		    <!-- slides -->
+		    <swiper-slide>
+				<img src="../assets/lunyu.jpg" height="310" width="100%">
+		    </swiper-slide>
+		    <swiper-slide>
+				<img src="../assets/mengzi.jpg" height="310" width="100%">
+		    </swiper-slide>
+		    <!-- Optional controls -->
+		    <div class="swiper-pagination"  slot="pagination"></div>
+		    <div class="swiper-button-prev" slot="button-prev"></div>
+		    <div class="swiper-button-next" slot="button-next"></div>
+		</swiper>
+  		</div>
+  		<ul class="m-list">
+  			<li class="list-item" v-for = "(item,index) in myList">
+  				<img class="pic" :src="item.book.image">
   				<div class="desc">
-  					<p class="title">{{item.title}}</p>
-  					<p class="oth">
-  						<span class="genres" v-for = "(itemg,indexg) in item.genres">
-  							{{itemg}}
-  						</span>
-  						<span class="average">(评分:{{item.rating.average}})</span>
+  					<p>作者：{{item.book.author[0]}}</p>
+  					<p>页数：{{item.book.pages}}</p>
+  					<p>
+  						标签：
+  						<span class="tag" v-for = "(itemTag, indexTag) in item.tags">{{itemTag}}</span>
   					</p>
+  					<p>出版社：{{item.book.publisher}}</p>
+  					<div class="cart-box">
+  						<p class="add-cart">
+  							<span class="ion-android-cart"></span>
+  							<span>加入购物车</span>
+  						</p>
+  					</div>
+  					
   				</div>
-  				<span class="detail ion-eye"></span>
+  				<!-- <span class="detail ion-eye"></span> -->
   			</li>
   		</ul>
-  		<div class="weui-loadmore">
-  			<i class="weui-loading"></i>
-  			<span class="weui-loadmore__tips">正在加载</span>
-		</div>
+  		
   	</div>
 </template>
 
@@ -42,8 +61,18 @@
 	  	},
 	  	data () {
 		  	return{
-		  		start: 0,
-		  		list: []
+		  		swiperOption: {
+		          	pagination: '.swiper-pagination',
+		          	nextButton: '.swiper-button-next',
+		          	prevButton: '.swiper-button-prev',
+		          	autoplay: 2000,
+		          	speed:800,
+		          	slidesPerView: 1,
+		          	paginationClickable: true,
+		          	spaceBetween: 30,
+		          	loop: true
+		        },
+		  		myList: []
 		  	}
 	  	
 	  	},
@@ -55,25 +84,10 @@
 			$(function() {
 			    	FastClick.attach(document.body);
 			});
-			var loading = false;  //状态标记
-			$(document.body).infinite().on("infinite", function() {
-			  	if(loading) return;
-			  	loading = true;
-			  	setTimeout(function() {
-			  		me.start += 10
-			    	me.$http.jsonp('https://api.douban.com/v2/movie/in_theaters?count=10&start=' + me.start)
-		  			.then(function(res){
-		  			console.log(res.data)
-		  			this.list = this.list.concat(res.data.subjects)
-		  			},function(err){
-		  				console.log(err)
-		  			})
-			    	loading = false;
-			  	}, 1000);   //模拟延迟
-			});
-		  	this.$http.jsonp('https://api.douban.com/v2/movie/in_theaters?count=10&start=' + this.start)
+		  	this.$http.get('/v2/book/user/162858873/collections')
 		  	.then(function(res){
-		  		this.list = res.data.subjects
+		  		console.log(res.data)
+		  		this.myList = res.data.collections
 		  	},function(err){
 		  		console.log(err)
 		  	})
@@ -81,6 +95,6 @@
 	}
 </script>
 <style lang="less">
-	@import '../less/mv_hot.less';
+	@import '../less/book.less';
 </style>
 

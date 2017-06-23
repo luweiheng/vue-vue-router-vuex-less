@@ -1,18 +1,18 @@
 <template>
-  	<div id="mv_hot">
-  		<ul class="mv-list">
+  	<div id="music">
+  		<ul class="m-list">
   			<li class="list-item" v-for = "(item,index) in list">
-  				<img class="pic" v-bind:src="item.images.small">
+  				<img class="pic" :src="item.album.blurPicUrl ? item.album.blurPicUrl : item.album.picUrl">
   				<div class="desc">
-  					<p class="title">{{item.title}}</p>
+  					<p class="title" @click="_searchSinger($event)">{{item.name}}</p>
   					<p class="oth">
-  						<span class="genres" v-for = "(itemg,indexg) in item.genres">
-  							{{itemg}}
+  						<span class="genres">
+  							专辑 : {{item.album.name}}
   						</span>
-  						<span class="average">(评分:{{item.rating.average}})</span>
   					</p>
   				</div>
-  				<span class="detail ion-eye"></span>
+  				<div class="singer">{{item.artists[0].name}}</div>
+  				<span class="detail ion-play" @click="_play(index)"></span>
   			</li>
   		</ul>
   		<div class="weui-loadmore">
@@ -24,14 +24,7 @@
 
 <script>
 	import Vue from 'vue'
-	import VueAwesomeSwiper from 'vue-awesome-swiper'
-	Vue.use(VueAwesomeSwiper)
-	// if (process.BROWSER_BUILD) {
-	//   const VueAwesomeSwiper = require('vue-awesome-swiper/ssr')
-	//   Vue.use(VueAwesomeSwiper)
-	// }
-	import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
+	
 	import VueResource from 'vue-resource'
 	Vue.use(VueResource)
 
@@ -42,13 +35,27 @@
 	  	},
 	  	data () {
 		  	return{
-		  		start: 0,
+		  		start: 3,
+		  		data: [],
 		  		list: []
 		  	}
 	  	
 	  	},
 		methods:{
-
+			_play (n) {
+				console.log(this.list[n].id)
+				// window.location.href = '/m/song/' + this.list[n].id + '?autoplay=true'
+			},
+			_searchSinger (e) {
+				var key = e.target.innerHTML
+				this.$http.get('/search/get?id=454561808&s=' + key + '&type=1')
+				.then(function(res){
+					console.log(res.data)
+					this.list = res.data.result.songs
+				},function(err){
+					console.log(err)
+				})
+			}
 		},
 		mounted () {
 			var me =this
@@ -61,19 +68,19 @@
 			  	loading = true;
 			  	setTimeout(function() {
 			  		me.start += 10
-			    	me.$http.jsonp('https://api.douban.com/v2/movie/in_theaters?count=10&start=' + me.start)
-		  			.then(function(res){
-		  			console.log(res.data)
-		  			this.list = this.list.concat(res.data.subjects)
-		  			},function(err){
-		  				console.log(err)
-		  			})
+			    	for(var i = me.start; i < me.start + 10; i++){
+			    		me.list.push(me.data[i])
+			    	}
 			    	loading = false;
 			  	}, 1000);   //模拟延迟
 			});
-		  	this.$http.jsonp('https://api.douban.com/v2/movie/in_theaters?count=10&start=' + this.start)
+		  	this.$http.get('/detail?id=758106745')
 		  	.then(function(res){
-		  		this.list = res.data.subjects
+		  		// console.log(res.data.result)
+		  		this.data = res.data.result.tracks
+		  		for(var i = 3; i < 13; i++){
+		  			this.list.push(this.data[i])
+		  		}
 		  	},function(err){
 		  		console.log(err)
 		  	})
@@ -81,6 +88,6 @@
 	}
 </script>
 <style lang="less">
-	@import '../less/mv_hot.less';
+	@import '../less/music.less';
 </style>
 

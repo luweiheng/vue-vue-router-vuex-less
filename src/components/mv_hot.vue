@@ -2,7 +2,7 @@
   	<div id="mv_hot">
   		<ul class="mv-list">
   			<li class="list-item" v-for = "(item,index) in list">
-  				<img class="pic" v-bind:src="item.images.small">
+  				<img class="pic" :src="item.images.small">
   				<div class="desc">
   					<p class="title">{{item.title}}</p>
   					<p class="oth">
@@ -61,7 +61,7 @@
 			  	loading = true;
 			  	setTimeout(function() {
 			  		me.start += 10
-			    	me.$http.jsonp('https://api.douban.com/v2/movie/in_theaters?count=10&start=' + me.start)
+			    	me.$http.get('/v2/movie/in_theaters?count=10&start=' + me.start)
 		  			.then(function(res){
 		  			console.log(res.data)
 		  			this.list = this.list.concat(res.data.subjects)
@@ -71,7 +71,7 @@
 			    	loading = false;
 			  	}, 1000);   //模拟延迟
 			});
-		  	this.$http.jsonp('https://api.douban.com/v2/movie/in_theaters?count=10&start=' + this.start)
+		  	this.$http.get('/v2/movie/in_theaters?count=10&start=' + this.start)
 		  	.then(function(res){
 		  		this.list = res.data.subjects
 		  	},function(err){

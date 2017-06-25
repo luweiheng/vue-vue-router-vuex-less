@@ -4,25 +4,17 @@ import Vue from 'vue'
 import App from '../components/App'
 
 Vue.config.productionTip = false
-	import VueRouter from 'vue-router'
-	Vue.use(VueRouter) 
-	const router = new VueRouter({
-  		routes: [
-  			{ 
-  				path: '/', 
-  				redirect: '/mv_hot' 
-  			},
-  			{
-  				path: '/mv',
-  				component: require('../components/mv_hot.vue')
-  			},
-  			{
-  				path: '/mv_hot',
-  				component: require('../components/mv_hot.vue')
-  			},
+import VueRouter from 'vue-router'
+Vue.use(VueRouter) 
+const router = new VueRouter({
+		routes: [
+			{ 
+				path: '/', 
+				redirect: '/mv' 
+			},
 			{
-				path: '/mv_coming', 
-				component: require('../components/mv_coming.vue')
+				path: '/mv',
+				component: require('../components/mv.vue')
 			},
 			{
 				path: '/music', 
@@ -32,8 +24,8 @@ Vue.config.productionTip = false
 				path: '/book', 
 				component: require('../components/book.vue')
 			}
-		]
-	})
+	]
+})
 
 /* eslint-disable no-new */
 const app = new Vue({  

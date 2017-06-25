@@ -1,10 +1,8 @@
 <template>
   	<div id="ft">
-  		<ul>
-  			<li @click="_href('mv')">电影</li>
-  			<li @click="_href('music')">音乐</li>
-  			<li @click="_href('book')">书籍</li>
-  		</ul>
+  		<router-link to="/mv" class="router">电影</router-link>
+		<router-link to="/music" class="router">音乐</router-link>
+		<router-link to="/book" class="router">书籍</router-link>
   	</div>
 </template>
 
@@ -22,9 +20,7 @@
 	  	
 	  	},
 		methods:{
-			_href (u) {
-				window.location.href = "./#/" + u
-			}
+			
 		},
 		mounted () {
 		  	

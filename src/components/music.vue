@@ -1,5 +1,6 @@
 <template>
   	<div id="music">
+  		<hd :tit = "tit"></hd>
   		<ul class="m-list">
   			<li class="list-item" v-for = "(item,index) in list">
   				<img class="pic" :src="item.album.blurPicUrl ? item.album.blurPicUrl : item.album.picUrl">
@@ -25,16 +26,19 @@
 <script>
 	import Vue from 'vue'
 	
+	import hd from './hd.vue'
+
 	import VueResource from 'vue-resource'
 	Vue.use(VueResource)
 
 	export default {
 	  	name: 'app',
 	  	components: {
-	    	
+	    	hd
 	  	},
 	  	data () {
 		  	return{
+		  		tit: 'music',
 		  		start: 3,
 		  		data: [],
 		  		list: []

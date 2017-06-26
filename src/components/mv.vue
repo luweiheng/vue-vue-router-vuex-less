@@ -1,11 +1,12 @@
 <template>
   	<div id="mv_hot">
+  		<hd :tit = "tit"></hd>
   		<ul class="mv_menu">
-  			<li @click="_mvMenu(1)">正在上映</li>
-  			<li @click="_mvMenu(2)">即将上映</li>
+  			<li :class="menuNum == 1 ? 'active' : ''" @click="_mvMenu(1)"><span>正在上映</span></li>
+  			<li :class="menuNum == 2 ? 'active' : ''" @click="_mvMenu(2)"><span>即将上映</span></li>
   		</ul>
   		<ul class="mv-list">
-  			<li class="list-item" v-for = "(item,index) in list">
+  			<li class="list-item" v-for = "(item,index) in list" @click="_mv_detail(item.id)">
   				<img class="pic" :src="item.images.small">
   				<div class="desc">
   					<p class="title">{{item.title}}</p>
@@ -28,6 +29,9 @@
 
 <script>
 	import Vue from 'vue'
+
+	import hd from './hd.vue'
+
 	import VueAwesomeSwiper from 'vue-awesome-swiper'
 	Vue.use(VueAwesomeSwiper)
 	// if (process.BROWSER_BUILD) {
@@ -40,12 +44,15 @@
 	Vue.use(VueResource)
 
 	export default {
-	  	name: 'app',
+	  	// props: {
+	  	// 	tit: this.tit
+	  	// },
 	  	components: {
-	    	
+	    	hd
 	  	},
 	  	data () {
 		  	return{
+		  		tit: 'movie',
 		  		menuNum: 1,
 		  		hot_start: 0,
 		  		coming_start: 0,
@@ -75,6 +82,10 @@
 					}
 					this.list = this.coming_list
 				}
+			},
+			_mv_detail (id) {
+				console.log(id)
+				window.location.href += '/detail?' + id
 			}
 		},
 		mounted () {
@@ -121,6 +132,12 @@
 		  	},function(err){
 		  		console.log(err)
 		  	})
+		  	// this.$http.get('/v2/movie/subject/25824686')
+		  	// .then(function(res){
+		  	// 	console.log(res.data)
+		  	// },function(err){
+		  	// 	console.log(err)
+		  	// })
 		}
 	}
 </script>

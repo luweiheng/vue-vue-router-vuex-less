@@ -1,13 +1,14 @@
 <template>
   	<div id="book">
+  		<hd :tit = "tit"></hd>
   		<div class="banner">
   			<swiper :options="swiperOption" ref="mySwiper">
 		    <!-- slides -->
 		    <swiper-slide>
-				<img src="../assets/lunyu.jpg" height="310" width="100%">
+				<img src="../assets/lunyu.jpg" height="250" width="100%">
 		    </swiper-slide>
 		    <swiper-slide>
-				<img src="../assets/mengzi.jpg" height="310" width="100%">
+				<img src="../assets/mengzi.jpg" height="250" width="100%">
 		    </swiper-slide>
 		    <!-- Optional controls -->
 		    <div class="swiper-pagination"  slot="pagination"></div>
@@ -17,9 +18,12 @@
   		</div>
   		<ul class="m-list">
   			<li class="list-item" v-for = "(item,index) in myList">
-  				<img class="pic" :src="item.book.image">
+  				<div class="author_detail">
+  					<p>{{item.book.author_intro}}</p>
+  				</div>
+  				<img class="pic" :src="item.book.image" @click="_bk_detail(item.book_id)">
   				<div class="desc">
-  					<p>作者：{{item.book.author[0]}}</p>
+  					<p>作者：<span class="author" @click="_author(index)">{{item.book.author[0]}}<span class="ion ion-chevron-down"></span></span></p>
   					<p>页数：{{item.book.pages}}</p>
   					<p>
   						标签：
@@ -27,14 +31,12 @@
   					</p>
   					<p>出版社：{{item.book.publisher}}</p>
   					<div class="cart-box">
-  						<p class="add-cart">
+  						<p class="add-cart" @click="_addCart(index)">
   							<span class="ion-android-cart"></span>
   							<span>加入购物车</span>
   						</p>
-  					</div>
-  					
+  					</div>	
   				</div>
-  				<!-- <span class="detail ion-eye"></span> -->
   			</li>
   		</ul>
   		
@@ -43,6 +45,9 @@
 
 <script>
 	import Vue from 'vue'
+
+	import hd from './hd.vue'
+
 	import VueAwesomeSwiper from 'vue-awesome-swiper'
 	Vue.use(VueAwesomeSwiper)
 	// if (process.BROWSER_BUILD) {
@@ -57,10 +62,11 @@
 	export default {
 	  	name: 'app',
 	  	components: {
-	    	
+	    	hd
 	  	},
 	  	data () {
 		  	return{
+		  		tit: 'book',
 		  		swiperOption: {
 		          	pagination: '.swiper-pagination',
 		          	nextButton: '.swiper-button-next',
@@ -77,7 +83,22 @@
 	  	
 	  	},
 		methods:{
-
+			_bk_detail (id) {
+				console.log(id)
+			},
+			_author (t) {
+				if ($('.author_detail')[t].className.match('active')) {
+					$('.author_detail')[t].className = 'author_detail'
+					$('.ion')[t].className = 'ion ion-chevron-down'
+				}
+				else{
+					$('.author_detail')[t].className = 'author_detail active'
+					$('.ion')[t].className = 'ion ion-chevron-up'
+				}
+			},
+			_addCart (t) {
+				alert('《' + this.myList[t].book.title + '》成功加入购物车！' )
+			}
 		},
 		mounted () {
 			var me =this
@@ -88,6 +109,14 @@
 		  	.then(function(res){
 		  		console.log(res.data)
 		  		this.myList = res.data.collections
+		  	},function(err){
+		  		console.log(err)
+		  	})
+		  	
+		  	this.$http.get('/v2/book/1321547')
+		  	.then(function(res){
+		  		//console.log(res.data)
+		  		
 		  	},function(err){
 		  		console.log(err)
 		  	})

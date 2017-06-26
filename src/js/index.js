@@ -17,6 +17,10 @@ const router = new VueRouter({
 				component: require('../components/mv.vue')
 			},
 			{
+				path: '/mv/detail',
+				component: require('../components/mv_detail.vue')
+			},
+			{
 				path: '/music', 
 				component: require('../components/music.vue')
 			},

@@ -63,8 +63,10 @@
 	  	
 	  	},
 		methods:{
-			// 
 			_mvMenu (t) {
+				if (this.menuNum != t) {
+					document.body.scrollTop = 0
+				}
 				this.menuNum = t
 				if (t == 1) {
 					this.list = this.hot_list
@@ -132,12 +134,6 @@
 		  	},function(err){
 		  		console.log(err)
 		  	})
-		  	// this.$http.get('/v2/movie/subject/25824686')
-		  	// .then(function(res){
-		  	// 	console.log(res.data)
-		  	// },function(err){
-		  	// 	console.log(err)
-		  	// })
 		}
 	}
 </script>

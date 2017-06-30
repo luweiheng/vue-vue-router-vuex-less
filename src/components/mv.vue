@@ -10,14 +10,14 @@
   				<img class="pic" :src="item.images.small">
   				<div class="desc">
   					<p class="title">{{item.title}}</p>
-  					<p class="oth">
+  					<div class="oth">
   						<div class="oth-l">
   							<span class="genres" v-for = "(itemg,indexg) in item.genres">
   								{{itemg}}
   							</span>
   						</div>
   						<span class="average">(评分:{{item.rating.average}})</span>
-  					</p>
+  					</div>
   				</div>
   				<span class="detail ion-eye"></span>
   			</li>

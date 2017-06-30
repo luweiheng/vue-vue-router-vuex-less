@@ -76,7 +76,6 @@
 						this.$http.get('../static/php/mv_comming.php?count=10&start=0')
 			  			.then(function(res){
 			  				res.data = JSON.parse(res.data)
-			  				console.log(res.data)
 			  				this.coming_list = res.data.subjects
 			  			},function(err){
 			  				console.log(err)

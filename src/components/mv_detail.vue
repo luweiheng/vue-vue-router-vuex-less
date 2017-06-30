@@ -47,8 +47,9 @@
 			$(function() {
 			    FastClick.attach(document.body);
 			});
-			let url = window.location.href.split('?')[1]
-		  	this.$http.get('../static/php/mv_detail.php?id=' + url)
+			let url = window.location.href
+			let id = url.slice(url.lastIndexOf('detail')+7)
+		  	this.$http.get('../static/php/mv_detail.php?id=' + id)
 		  	.then(function(res){
 		  		console.log(res.data)
 		  		this.imgUrl = res.data.images.large

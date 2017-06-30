@@ -5,7 +5,7 @@
   		<i class="ion-refresh" @click="_reload()"></i>
   		<div class="opa" :class="opa ? 'active' : ''">
   			<div class="opa-left">
-  				<img src="https://img3.doubanio.com\/icon\/up162858873-2.jpg" width="180">
+  				<img src="https://img3.doubanio.com\/icon\/up162858873-2.jpg" width="140">
   				<ul>
   					<li>梁呈</li>
   					<li>1993/09/05</li>

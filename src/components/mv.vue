@@ -11,9 +11,11 @@
   				<div class="desc">
   					<p class="title">{{item.title}}</p>
   					<p class="oth">
-  						<span class="genres" v-for = "(itemg,indexg) in item.genres">
-  							{{itemg}}
-  						</span>
+  						<div class="oth-l">
+  							<span class="genres" v-for = "(itemg,indexg) in item.genres">
+  								{{itemg}}
+  							</span>
+  						</div>
   						<span class="average">(评分:{{item.rating.average}})</span>
   					</p>
   				</div>

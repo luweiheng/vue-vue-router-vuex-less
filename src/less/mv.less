@@ -50,8 +50,20 @@
 			margin: 0 15px; 
 			.oth{
 				margin-top: 5px;
-				span{
-					margin-right: 5px;
+				overflow: hidden;
+				&-l{
+					float: left;
+					overflow: hidden;
+					max-width: 90px;
+					height: 26px;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					span{
+						margin-right: 5px;
+					}
+				}
+				.average{
+					float: right;
 				}
 			}
 		}

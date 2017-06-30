@@ -48,7 +48,7 @@
 			    FastClick.attach(document.body);
 			});
 			let url = window.location.href.split('?')[1]
-		  	this.$http.get('/v2/movie/subject/' + url)
+		  	this.$http.get('../static/php/mv_detail.php?id=' + url)
 		  	.then(function(res){
 		  		console.log(res.data)
 		  		this.imgUrl = res.data.images.large

@@ -78,9 +78,10 @@
 			    	loading = false;
 			  	}, 1000);   //模拟延迟
 			});
-		  	this.$http.get('/detail?id=758106745')
+		  	this.$http.get('../static/php/music.php')
 		  	.then(function(res){
 		  		// console.log(res.data.result)
+		  		res.data = JSON.parse(res.data)
 		  		this.data = res.data.result.tracks
 		  		for(var i = 3; i < 13; i++){
 		  			this.list.push(this.data[i])

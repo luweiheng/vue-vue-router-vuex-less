@@ -7,7 +7,7 @@
   			</div>
   		</div>
   		<div class="detail">
-  			<audio autoplay="autoplay" :src="playing.url"></audio>
+  			<!-- <audio autoplay="autoplay" :src="playing.url"></audio> -->
 	  		<img class="img" :src="playing.img">
 	  		<h3 class="tit">{{playing.title}}</h3>
 	  		<p class="author">{{playing.author}}</p>

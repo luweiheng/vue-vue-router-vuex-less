@@ -27,11 +27,11 @@ var proxyTable = {
       '^/v2': 'v2'
     }
   },
-  '/detail': {
-    target: 'http://music.163.com/api/playlist',
+  '/api': {
+    target: 'http://music.163.com',
     changeOrigin: true,
     pathRewrite: {
-      '^/detail': 'detail'
+      '^/api': 'api'
     }
   },
   '/search': {

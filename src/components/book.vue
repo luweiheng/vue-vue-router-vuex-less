@@ -105,10 +105,9 @@
 			$(function() {
 			    	FastClick.attach(document.body);
 			});
-		  	this.$http.get('../static/php/book.php')
+		  	// this.$http.get('../static/php/book.php')
+		  	this.$http.get('/v2/book/user/162858873/collections')
 		  	.then(function(res){
-		  		console.log(res.data)
-		  		// res.data = JSON.parse(res.data)
 		  		console.log(res.data)
 		  		this.myList = res.data.collections
 		  	},function(err){

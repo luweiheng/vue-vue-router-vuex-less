@@ -13,7 +13,6 @@
 	  		<div class="tag">标签 : <span v-for="(item,index) in tags">{{item}}/</span></div>
 	  		<p class="desc">{{desc}}</p>
   		</div>
-  		
   	</div>
 </template>
 
@@ -49,7 +48,8 @@
 			});
 			let url = window.location.href
 			let id = url.slice(url.lastIndexOf('detail')+7)
-		  	this.$http.get('../static/php/mv_detail.php?id=' + id)
+		  	// this.$http.get('../static/php/mv_detail.php?id=' + id)
+		  	this.$http.get('/v2/movie/subject/' + id)
 		  	.then(function(res){
 		  		console.log(res.data)
 		  		this.imgUrl = res.data.images.large

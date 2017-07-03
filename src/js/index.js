@@ -25,6 +25,10 @@ const router = new VueRouter({
 				component: require('../components/music.vue')
 			},
 			{
+				path: '/music/detail',
+				component: require('../components/music_detail.vue')
+			},
+			{
 				path: '/book', 
 				component: require('../components/book.vue')
 			}

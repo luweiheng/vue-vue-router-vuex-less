@@ -42,30 +42,30 @@
 	  	data () {
 		  	return{
 		  		list: [
-		  			{
-		  				url: 'http://m10.music.126.net/20170703182434/9da6970e06379d184270c98764f72f15/ymusic/b1c4/b5de/74d0/9158ae4873e10b743790320db9ef9b29.mp3',
-		  				img: 'http://p1.music.126.net/QHw-RuMwfQkmgtiyRpGs0Q==/102254581395219.jpg?param=180y180',
-		  				title: '海阔天空',
-		  				author: 'beyond',
-		  				time: '05:26',
-		  				time2: '326'
-		  			},
-		  			{
-		  				url: 'http://m10.music.126.net/20170703182204/f73add01492be1c101a86f3705ad186c/ymusic/ce70/d44c/021f/31d3215f707625a65663ab51858d6a86.mp3',
-		  				img: 'http://p3.music.126.net/C6txAWMGlVmAcAD37RVutQ==/122045790684028.jpg?param=180y180',
-		  				title: '蓝莲花',
-		  				author: '许巍',
-		  				time: '04:30',
-		  				time2: '270'
-		  			},
-		  			{
-		  				url:'http://m10.music.126.net/20170703180014/dcd2f1eed5f032ded13030adc19c6e0e/ymusic/3dee/604d/06d0/f182b7fe5394a75125c17a867829cdf7.mp3',
-		  				img: 'http://p1.music.126.net/QHw-RuMwfQkmgtiyRpGs0Q==/102254581395219.jpg?param=180y180',
-		  				title: '光辉岁月',
-		  				author: 'beyond',
-		  				time: '04:58',
-		  				time2: '298'
-		  			}
+		  			// {
+		  			// 	url: 'http://m10.music.126.net/20170703182434/9da6970e06379d184270c98764f72f15/ymusic/b1c4/b5de/74d0/9158ae4873e10b743790320db9ef9b29.mp3',
+		  			// 	img: 'http://p1.music.126.net/QHw-RuMwfQkmgtiyRpGs0Q==/102254581395219.jpg?param=180y180',
+		  			// 	title: '海阔天空',
+		  			// 	author: 'beyond',
+		  			// 	time: '05:26',
+		  			// 	time2: '326'
+		  			// },
+		  			// {
+		  			// 	url: 'http://m10.music.126.net/20170703182204/f73add01492be1c101a86f3705ad186c/ymusic/ce70/d44c/021f/31d3215f707625a65663ab51858d6a86.mp3',
+		  			// 	img: 'http://p3.music.126.net/C6txAWMGlVmAcAD37RVutQ==/122045790684028.jpg?param=180y180',
+		  			// 	title: '蓝莲花',
+		  			// 	author: '许巍',
+		  			// 	time: '04:30',
+		  			// 	time2: '270'
+		  			// },
+		  			// {
+		  			// 	url:'http://m10.music.126.net/20170703180014/dcd2f1eed5f032ded13030adc19c6e0e/ymusic/3dee/604d/06d0/f182b7fe5394a75125c17a867829cdf7.mp3',
+		  			// 	img: 'http://p1.music.126.net/QHw-RuMwfQkmgtiyRpGs0Q==/102254581395219.jpg?param=180y180',
+		  			// 	title: '光辉岁月',
+		  			// 	author: 'beyond',
+		  			// 	time: '04:58',
+		  			// 	time2: '298'
+		  			// }
 		  		],
 		  		playing: {},
 		  		play: true,

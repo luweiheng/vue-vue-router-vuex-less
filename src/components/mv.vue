@@ -74,16 +74,6 @@
 					this.list = this.hot_list
 				}
 				else {
-					if (!this.coming_list.length) {
-						// this.$http.get('../static/php/mv_comming.php?count=10&start=0')
-						this.$http.get('/v2/movie/coming_soon?count=10&start=' + this.coming_start)
-			  			.then(function(res){
-			  				// res.data = JSON.parse(res.data)
-			  				this.coming_list = res.data.subjects
-			  			},function(err){
-			  				console.log(err)
-			  			})
-					}
 					this.list = this.coming_list
 				}
 			},
@@ -139,6 +129,14 @@
 		  	},function(err){
 		  		console.log(err)
 		  	})
+		  	this.$http.get('/v2/movie/coming_soon?count=10&start=' + this.coming_start)
+		  	// this.$http.get('../static/php/mv_comming.php?count=10&start=0')
+  			.then(function(res){
+  				// res.data = JSON.parse(res.data)
+  				this.coming_list = res.data.subjects
+  			},function(err){
+  				console.log(err)
+  			})
 		}
 	}
 </script>

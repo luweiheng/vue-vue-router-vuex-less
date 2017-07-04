@@ -22,6 +22,9 @@
 <script>
 	import Vue from 'vue'
 	
+	import directives from '../js/touch.js'
+	directives(Vue)
+
 	export default {
 		props: [
 			'tit'

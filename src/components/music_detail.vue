@@ -52,7 +52,7 @@
 		  				time2: '321'
 		  			},
 		  			{
-		  				url: 'http://fs.web.kugou.com/c9d16fb679f9b77c2f4a1023b507bbc7/595b461e/G008/M08/07/04/SA0DAFT7mn6AVDw6AEIXhTXgYbw529.mp3',
+		  				url: 'http://m10.music.126.net/20170713175915/49fd98ae0f6aad1ab5deebd0f6012b78/ymusic/ce70/d44c/021f/31d3215f707625a65663ab51858d6a86.mp3',
 		  				img: 'http://p3.music.126.net/C6txAWMGlVmAcAD37RVutQ==/122045790684028.jpg?param=180y180',
 		  				title: '蓝莲花',
 		  				author: '许巍',
@@ -60,7 +60,7 @@
 		  				time2: '270'
 		  			},
 		  			{
-		  				url:'http://fs.web.kugou.com/5329bec795ebadbc10e3f4d90850e5b4/595b4003/G009/M01/12/18/SQ0DAFUJpeSAL59KADUdO0-IilU625.mp3',
+		  				url:'http://m10.music.126.net/20170713175957/1bb5c3cad5eed4ff0f5111012927957d/ymusic/f93b/27da/2b22/bc3835c51683c13bde1e12842172f42d.mp3',
 		  				img: 'http://p1.music.126.net/kACfPVCIjo67lPo8ca0REQ==/1719636185851311.jpg?param=180y180',
 		  				title: 'In The End',
 		  				author: 'linkin park',

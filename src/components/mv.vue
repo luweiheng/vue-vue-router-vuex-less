@@ -102,10 +102,10 @@
 			  			start = me.coming_start
 			  			urlData = 'coming_soon'
 			  		}
-			    	//me.$http.get('../static/php/'+urlData+'.php?count=10&start=' + start)
-			    	me.$http.get('/v2/movie/' + urlData + '?count=10&start=' + start)
+			    	me.$http.get('../static/php/'+urlData+'.php?count=10&start=' + start)
+			    	// me.$http.get('/v2/movie/' + urlData + '?count=10&start=' + start)
 		  			.then(function(res){
-		  				// res.data = JSON.parse(res.data)
+		  				res.data = JSON.parse(res.data)
 		  				if (me.menuNum == 1) {
 		  					me.hot_list = me.hot_list.concat(res.data.subjects)
 		  					this.list = me.hot_list
@@ -120,19 +120,19 @@
 			    	loading = false;
 			  	}, 1000);   
 			});
-		  	this.$http.get('/v2/movie/in_theaters?count=10&start=' + this.hot_start)
-		  	// this.$http.get('../static/php/mv_hot.php?count=10&start=' + this.hot_start)
+		  	// this.$http.get('/v2/movie/in_theaters?count=10&start=' + this.hot_start)
+		  	this.$http.get('../static/php/mv_hot.php?count=10&start=0')
 		  	.then(function(res){
-		  		// res.data = JSON.parse(res.data)
+		  		res.data = JSON.parse(res.data)
 		  		this.hot_list = res.data.subjects
 		  		this.list = this.hot_list
 		  	},function(err){
 		  		console.log(err)
 		  	})
-		  	this.$http.get('/v2/movie/coming_soon?count=10&start=' + this.coming_start)
-		  	// this.$http.get('../static/php/mv_comming.php?count=10&start=0')
+		  	// this.$http.get('/v2/movie/coming_soon?count=10&start=' + this.coming_start)
+		  	this.$http.get('../static/php/mv_comming.php?count=10&start=0')
   			.then(function(res){
-  				// res.data = JSON.parse(res.data)
+  				res.data = JSON.parse(res.data)
   				this.coming_list = res.data.subjects
   			},function(err){
   				console.log(err)

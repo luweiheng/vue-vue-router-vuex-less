@@ -50,11 +50,10 @@
 			}
 		},
 		mounted () {
-			
-		  	// this.$http.get('../static/php/music.php')
-		  	this.$http.get('/api/playlist/detail?id=325515019')
+		  	this.$http.get('../static/php/music.php')
+		  	// this.$http.get('/api/playlist/detail?id=325515019')
 		  	.then(function(res){
-		  		// res.data = JSON.parse(res.data)
+		  		res.data = JSON.parse(res.data)
 		  		this.data = res.data.result.tracks
 		  		for(var i = 3; i < 13; i++){
 		  			this.list.push(this.data[i])

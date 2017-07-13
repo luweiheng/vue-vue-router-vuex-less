@@ -106,8 +106,8 @@
 			$(function() {
 			    	FastClick.attach(document.body);
 			});
-		  	// this.$http.get('../static/php/book.php')
-		  	this.$http.get('/v2/book/user/162858873/collections')
+		  	this.$http.get('../static/php/book.php')
+		  	// this.$http.get('/v2/book/user/162858873/collections')
 		  	.then(function(res){
 		  		this.myList = res.data.collections
 		  	},function(err){

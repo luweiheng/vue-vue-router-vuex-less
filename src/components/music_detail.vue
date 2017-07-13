@@ -44,7 +44,7 @@
 		  	return{
 		  		list: [
 		  			{
-		  				url: 'http://fs.web.kugou.com/e7fbbbd4ff43dd25b7c7f9f0d23cdd85/595b4695/G006/M03/01/14/poYBAFT9squASISKAE6Q0h_qwLw607.mp3',
+		  				url: 'http://m10.music.126.net/20170713174737/22a945355d5e9c50685833763d5f365b/ymusic/b1c4/b5de/74d0/9158ae4873e10b743790320db9ef9b29.mp3',
 		  				img: 'http://p1.music.126.net/QHw-RuMwfQkmgtiyRpGs0Q==/102254581395219.jpg?param=180y180',
 		  				title: '海阔天空',
 		  				author: 'beyond',

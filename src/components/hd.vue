@@ -11,7 +11,7 @@
   					<li>1993/09/05</li>
   					<li>韶关学院</li>
   					<li>本科</li>
-  					<li>QQ : 1101126974</li>
+  					<li>电话 : 13178835585</li>
   				</ul>
   			</div>
   			<div class="opa-right" @click="_closeOpa()"></div>

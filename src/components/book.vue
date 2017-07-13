@@ -99,6 +99,7 @@
 			_addCart (t) {
 				alert('《' + this.myList[t].book.title + '》成功加入购物车！' )
 			}
+
 		},
 		mounted () {
 			var me =this
@@ -108,19 +109,11 @@
 		  	// this.$http.get('../static/php/book.php')
 		  	this.$http.get('/v2/book/user/162858873/collections')
 		  	.then(function(res){
-		  		console.log(res.data)
 		  		this.myList = res.data.collections
 		  	},function(err){
 		  		console.log(err)
 		  	})
-		  	
-		  	// this.$http.get('/v2/book/1321547')
-		  	// .then(function(res){
-		  	// 	//console.log(res.data)
-		  		
-		  	// },function(err){
-		  	// 	console.log(err)
-		  	// })
+
 		}
 	}
 </script>

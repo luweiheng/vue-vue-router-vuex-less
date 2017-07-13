@@ -102,7 +102,7 @@
 			  			start = me.coming_start
 			  			urlData = 'coming_soon'
 			  		}
-			    	// me.$http.get('../static/php/'+urlData+'.php?count=10&start=' + start)
+			    	//me.$http.get('../static/php/'+urlData+'.php?count=10&start=' + start)
 			    	me.$http.get('/v2/movie/' + urlData + '?count=10&start=' + start)
 		  			.then(function(res){
 		  				// res.data = JSON.parse(res.data)

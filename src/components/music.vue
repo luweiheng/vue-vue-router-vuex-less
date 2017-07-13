@@ -5,7 +5,7 @@
   			<li class="list-item" v-for = "(item,index) in list" @click="_toDetail(item.id)">
   				<img class="pic" :src="item.album.blurPicUrl ? item.album.blurPicUrl : item.album.picUrl">
   				<div class="desc">
-  					<p class="title" @click="_searchSinger($event)">{{item.name}}</p>
+  					<p class="title">{{item.name}}</p>
   					<p class="oth">
   						<span class="genres">
   							专辑 : {{item.album.name}}
@@ -54,7 +54,6 @@
 		  	// this.$http.get('../static/php/music.php')
 		  	this.$http.get('/api/playlist/detail?id=325515019')
 		  	.then(function(res){
-		  		// console.log(res.data.result)
 		  		// res.data = JSON.parse(res.data)
 		  		this.data = res.data.result.tracks
 		  		for(var i = 3; i < 13; i++){

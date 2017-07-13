@@ -8,6 +8,7 @@
   		</div>
   		<div class="detail">
   			<audio autoplay="autoplay" :src="playing.url"></audio>
+  			<p style="font-size: 18px;color: #f00;">因接口更换原因，此页数据为静态数据！</p>
 	  		<img class="img" :src="playing.img">
 	  		<h3 class="tit">{{playing.title}}</h3>
 	  		<p class="author">{{playing.author}}</p>

@@ -9,7 +9,7 @@
   		<div class="detail">
   			<audio autoplay="autoplay" :src="playing.url"></audio>
   			<p style="font-size: 18px;color: #f00;">因接口更换原因，此页数据为静态数据！</p>
-	  		<img class="img" :src="playing.img">
+	  		<img class="img" :src="playing.img" width="180" height="180">
 	  		<h3 class="tit">{{playing.title}}</h3>
 	  		<p class="author">{{playing.author}}</p>
 	  		<div class="menu">
@@ -44,28 +44,28 @@
 		  	return{
 		  		list: [
 		  			{
-		  				url: 'http://m10.music.126.net/20170713174737/22a945355d5e9c50685833763d5f365b/ymusic/b1c4/b5de/74d0/9158ae4873e10b743790320db9ef9b29.mp3',
-		  				img: 'http://p1.music.126.net/QHw-RuMwfQkmgtiyRpGs0Q==/102254581395219.jpg?param=180y180',
-		  				title: '海阔天空',
-		  				author: 'beyond',
-		  				time: '05:21',
-		  				time2: '321'
+		  				url: '../assets/张学友 - 吻别.mp3',
+		  				img: 'http://imge.kugou.com/stdmusic/20170425/20170425071843619428.jpg',
+		  				title: '吻别',
+		  				author: '张学友',
+		  				time: '04:59',
+		  				time2: '299'
 		  			},
 		  			{
-		  				url: 'http://m10.music.126.net/20170713175915/49fd98ae0f6aad1ab5deebd0f6012b78/ymusic/ce70/d44c/021f/31d3215f707625a65663ab51858d6a86.mp3',
-		  				img: 'http://p3.music.126.net/C6txAWMGlVmAcAD37RVutQ==/122045790684028.jpg?param=180y180',
-		  				title: '蓝莲花',
-		  				author: '许巍',
-		  				time: '04:30',
-		  				time2: '270'
+		  				url: '../assets/薛之谦 - 演员.mp3',
+		  				img: 'http://singerimg.kugou.com/uploadpic/softhead/400/20170713/20170713161536456.jpg',
+		  				title: '演员',
+		  				author: '薛之谦',
+		  				time: '04:21',
+		  				time2: '261'
 		  			},
 		  			{
-		  				url:'http://m10.music.126.net/20170713175957/1bb5c3cad5eed4ff0f5111012927957d/ymusic/f93b/27da/2b22/bc3835c51683c13bde1e12842172f42d.mp3',
-		  				img: 'http://p1.music.126.net/kACfPVCIjo67lPo8ca0REQ==/1719636185851311.jpg?param=180y180',
-		  				title: 'In The End',
-		  				author: 'linkin park',
-		  				time: '03:40',
-		  				time2: '220'
+		  				url:'../assets/周传雄 - 青花.mp3',
+		  				img: 'http://imge.kugou.com/stdmusic/20170619/20170619161444489222.jpg',
+		  				title: '青花',
+		  				author: '周传雄',
+		  				time: '04:57',
+		  				time2: '297'
 		  			}
 		  		],
 		  		playing: {},
